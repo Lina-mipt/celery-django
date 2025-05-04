@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Восстановление пароля</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    .password-reset-form {
+      width: 300px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .password-reset-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .password-reset-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .password-reset-form input[type="email"],
+    .password-reset-form input[type="password"]{
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .password-reset-form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .password-reset-form button:hover {
+      background-color: #45a049;
+    }
+    .password-reset-form .back-to-login {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .password-reset-form .back-to-login a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    .password-reset-form .back-to-login a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="password-reset-form">
+    <h2>Восстановление пароля</h2>
+    <form action="/forgot" method="post">
+      <label for="email">Электронная почта:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Новый пароль:</label> {% csrf_token %}
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Отправить инструкции</button>
+    </form>
+    <div class="back-to-login">
+      <a href="/login">Вернуться к входу</a>
+    </div>
+  </div>
+</body>
+</html>
+
